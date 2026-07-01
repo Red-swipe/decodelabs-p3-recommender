@@ -19,6 +19,31 @@ class Recommender:
                 "rank": rank,
                 "title": row["title"],
                 "genre": row["genre"],
+                "score": round(float(scores[idx]), 4),
+            })
+        return results
+
+    def recommend_similar(self, movie_title: str, top_n: int = 5) -> list[dict]:
+        corpus = self.vectorizer.get_corpus()
+        match = corpus[corpus["title"] == movie_title]
+        if match.empty:
+            return []
+        idx = match.index[0]
+        scores = cosine_similarity(
+            self.vectorizer.get_matrix()[idx],
+            self.vectorizer.get_matrix(),
+        ).flatten()
+        scores[idx] = -1
+        top_indices = scores.argsort()[::-1][:top_n]
+
+        results = []
+        for rank, idx in enumerate(top_indices, 1):
+            row = corpus.iloc[idx]
+            results.append({
+                "rank": rank,
+                "title": row["title"],
+                "genre": row["genre"],
+                "score": round(float(scores[idx]), 4),
             })
         return results
 
