@@ -1,7 +1,23 @@
-# 🎬 Movie Recommendation Engine
+# V1 — Basic TF-IDF Movie Recommender
 
-> **DecodeLabs AI Internship — Project 3**  
-> Content-based movie recommendation system using TF-IDF, cosine similarity, and hybrid scoring.
+> **DecodeLabs AI Internship — Project 3 — V1**  
+> Pure TF-IDF cosine similarity recommender with a minimal Streamlit UI.
+
+---
+
+## What It Does
+
+Enter a movie genre or keyword — the engine returns top-N matching movies using TF-IDF cosine similarity on metadata. No genre weighting, no similarity scores shown. Simple list output.
+
+## What It Does NOT Have
+
+- ❌ No genre filter sidebar
+- ❌ No similarity scores displayed
+- ❌ No "More like this" buttons
+- ❌ No card grid layout
+- ❌ No explainability (matched keywords)
+- ❌ No clickable search history chips
+- ❌ No dark theme
 
 ---
 
@@ -29,8 +45,8 @@ Open `http://localhost:8501` in your browser.
 decodelabs-p3-recommender/
 ├── app.py                 # Streamlit UI
 ├── engine/
-│   ├── recommender.py     # Cosine similarity + hybrid scoring logic
-│   ├── vectorizer.py      # TF-IDF vectorization (content + genre)
+│   ├── recommender.py     # Cosine similarity
+│   ├── vectorizer.py      # TF-IDF vectorization
 │   └── __init__.py
 ├── data/
 │   └── movies.csv         # Movie dataset
@@ -38,29 +54,6 @@ decodelabs-p3-recommender/
 ├── LICENSE
 └── README.md
 ```
-
----
-
-## Version History
-
-### V1 — Basic Recommender
-- TF-IDF cosine similarity on movie metadata
-- Simple list output of top-N results
-- Minimal Streamlit UI
-
-### V2 — Enhanced Experience
-- Genre filter sidebar
-- Similarity scores displayed as percentages
-- "More like this" button per result
-- Card grid layout
-- Session-based search history (text display)
-
-### V3 — Portfolio Quality
-- Hybrid scoring: 0.7 × content similarity + 0.3 × genre match ratio
-- Explainability: "Matched on: [top 3 keywords]" under each result
-- Clickable search history chips in sidebar (last 5 queries, re-runnable)
-- Dark theme UI
-- 2-column card grid
 
 ---
 
