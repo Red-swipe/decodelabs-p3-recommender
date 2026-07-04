@@ -1,6 +1,6 @@
 # Movie Recommendation Engine
 
-> **DecodeLabs AI Internship — Project 3, Version 2**  
+> **DecodeLabs AI Internship — Project 3, Version 3**  
 > Content-based movie recommendation system using TF-IDF and cosine similarity with an interactive Streamlit UI.
 
 ---
@@ -11,14 +11,13 @@ Enter any movie genre, keyword, or interest — the engine finds the most simila
 
 **Example:** Type `"sci-fi space exploration"` → get movies ranked by how closely they match that profile.
 
-### Version 2 Features
+### Version History
 
-- **Genre filter** — narrow results by one or more genres from the sidebar
-- **Score percentage** — match score displayed as 0–100% per result
-- **Card grid layout** — results shown in a 3-column responsive grid with movie info
-- **"More like this"** — click any result to find similar movies to that specific title
-- **Search history** — last 5 queries tracked in the sidebar
-- **IMDB ratings** — placeholder ready for future API integration
+| Version | Features |
+|---------|----------|
+| **V1** | Basic TF-IDF — single query, plain text results, 3 columns |
+| **V2** | Genre filter, score %, card grid, "More like this", search history, IMDB placeholder |
+| **V3** | Hybrid scoring (content 70% + genre 30%), matched keywords per result, dark theme, 2-column grid, clickable history chips |
 
 ---
 
@@ -47,9 +46,6 @@ Enter any movie genre, keyword, or interest — the engine finds the most simila
 git clone https://github.com/Red-swipe/decodelabs-p3-recommender.git
 cd decodelabs-p3-recommender
 
-# Switch to V2 branch
-git checkout V2
-
 # Install dependencies
 pip install -r requirements.txt
 
@@ -65,7 +61,7 @@ Open `http://localhost:8501` in your browser.
 
 ```
 decodelabs-p3-recommender/
-├── app.py                 # Streamlit UI (V2)
+├── app.py                 # Streamlit UI (V3)
 ├── engine/
 │   ├── recommender.py     # Cosine similarity logic
 │   ├── vectorizer.py      # TF-IDF vectorization
