@@ -1,45 +1,34 @@
-# Movie Recommendation Engine
+# V3 — Hybrid Scoring + Explainability (Portfolio Quality)
 
-> **DecodeLabs AI Internship — Project 3, Version 3**  
-> Content-based movie recommendation system using TF-IDF and cosine similarity with an interactive Streamlit UI.
-
----
-
-## What It Does
-
-Enter any movie genre, keyword, or interest — the engine finds the most similar movies from a real dataset using natural language similarity, not random guesses.
-
-**Example:** Type `"sci-fi space exploration"` → get movies ranked by how closely they match that profile.
-
-### Version History
-
-| Version | Features |
-|---------|----------|
-| **V1** | Basic TF-IDF — single query, plain text results, 3 columns |
-| **V2** | Genre filter, score %, card grid, "More like this", search history, IMDB placeholder |
-| **V3** | Hybrid scoring (content 70% + genre 30%), matched keywords per result, dark theme, 2-column grid, clickable history chips |
+> **DecodeLabs AI Internship — Project 3 — V3**  
+> Content-based movie recommender with hybrid scoring, keyword explainability, clickable history chips, and dark theme UI.
 
 ---
 
-## How It Works
+## Full Feature List
 
-| Layer | Technology |
-|-------|-----------|
-| **Vectorization** | TF-IDF (Term Frequency-Inverse Document Frequency) |
-| **Similarity** | Cosine Similarity via scikit-learn |
-| **UI** | Streamlit |
-| **Data** | movies.csv (titles, genres, descriptions) |
+- ✅ Hybrid scoring: 0.7 × content similarity (TF-IDF) + 0.3 × genre match ratio
+- ✅ Explainability: "Matched on: [top 3 keywords]" under each result
+- ✅ Clickable search history chips in sidebar (last 5 queries, re-runnable)
+- ✅ Dark theme UI
+- ✅ 2-column card grid with poster placeholders
+- ✅ Genre filter sidebar
+- ✅ Similarity scores displayed as percentages
+- ✅ "More like this" button per result
+- ✅ Session-based search history
 
-**Pipeline:**
-1. Movie metadata → TF-IDF matrix (built once at startup)
-2. User query → TF-IDF vector
-3. Cosine similarity computed between query vector and all movies
-4. Optional genre filter applied
-5. Top-N results returned ranked by score
+## What's New Over V2
+
+| V2 | V3 |
+|---|---|
+| Pure TF-IDF cosine similarity | Hybrid: 70% content + 30% genre |
+| No explainability | "Matched on: [top 3 keywords]" per card |
+| Text-only history display | Clickable history chips (re-runnable) |
+| Light theme | Dark theme UI |
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
 ```bash
 # Clone the repo
@@ -57,14 +46,14 @@ Open `http://localhost:8501` in your browser.
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 decodelabs-p3-recommender/
 ├── app.py                 # Streamlit UI (V3)
 ├── engine/
-│   ├── recommender.py     # Cosine similarity logic
-│   ├── vectorizer.py      # TF-IDF vectorization
+│   ├── recommender.py     # Cosine similarity + hybrid scoring logic
+│   ├── vectorizer.py      # TF-IDF vectorization (content + genre)
 │   └── __init__.py
 ├── data/
 │   └── movies.csv         # Movie dataset
@@ -75,18 +64,7 @@ decodelabs-p3-recommender/
 
 ---
 
-## Skills Demonstrated
-
-- Content-based filtering from scratch (no ML frameworks doing the heavy lifting)
-- TF-IDF vectorization and cosine similarity
-- Building a recommendation pipeline end-to-end
-- Clean modular Python architecture (engine separation)
-- Streamlit for rapid ML app deployment
-- Interactive UI with filters, cards, and session state
-
----
-
-## License
+## 📜 License
 
 MIT — see [LICENSE](LICENSE)
 
